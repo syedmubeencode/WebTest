@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+   <head>
+      <b:skin><![CDATA[
+         
+            
+      ]]></b:skin>
+      <meta charset='UTF-8'/>
+      <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+      <title>Load Next Page</title>
+      <style>
+         body {
+         font-family: Arial, sans-serif;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: #f4f4f4;
+         margin: 0;
+         }
+         .container {
+         text-align: center;
+         background: white;
+         padding: 20px;
+         border-radius: 10px;
+         box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+         }
+         button {
+         padding: 10px 20px;
+         margin-top: 10px;
+         background-color: #007BFF;
+         color: white;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         }
+         button:hover {
+         background-color: #0056b3;
+         }
+         #content {
+         margin-top: 20px;
+         padding: 15px;
+         background: #fff;
+         border-radius: 5px;
+         box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+         }
+      </style>
+   </head>
+   <body>
+      <b:section class='blog-posts' id='main' showaddelement='no'/>
+      <div class='container'>
+      <h1>Welcome to Page 1</h1>
+      <button onclick='loadNextPage()'>Click to Go Next Page</button>
+      <div id='content'/>
+         <!-- This is where the next page will load -->
+      </div>
+      <script>
+         function loadNextPage() {
+            fetch(&#39;https://raw.githubusercontent.com/syedmubeencode/WebTest/refs/heads/main/Pro1-TestSite(1Mar)/HTML/name.html&#39;) // Fetch raw HTML file
+                .then(response =&gt; response.text()) // Convert to text
+                .then(html =&gt; {
+                    document.getElementById(&quot;content&quot;).innerHTML = html; // Insert HTML content
+                })
+                .catch(error =&gt; console.error(&#39;Error loading the page:&#39;, error));
+         }
+         
+      </script>
+   </body>
+</html>
